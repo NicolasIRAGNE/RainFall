@@ -1,0 +1,4 @@
+on voit que le binaire fait un atoi, on suppose avec av[1]
+on voit ensuite un cmp du retour d'atoi avec 0x1a7 (423 en decimal)
+on essaie ./level0 423
+on a un shell avec les droits level1, plus qu'a cat /home/user/level1/.pass
