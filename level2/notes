@@ -1,0 +1,6 @@
+dans la fonction p:
+un cmp de l'eip avec 0x80000000 => 
+si oui : exit
+les fonctions de la libc commencent par 0x8 donc on peut pas les call
+peut être call une de ses fonctions à lui et push la valeur de retour de system ?
+needs more testing
