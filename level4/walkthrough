@@ -1,0 +1,12 @@
+on peut utiliser la meme technique que le level d'avant
+le probleme c'est que la valeur a ecrire est tres grande et que le fgets ne prend que 0x200 caracteres 
+on a deux possibilites : 
+on peut ecrire byte par byte
+ou alors on peut tenter d'utiliser le formattage de printf pour rajouter des caracteres sur un flag
+
+https://www.exploit-db.com/docs/english/28476-linux-format-string-exploitation.pdf
+
+on va tenter le deuxieme parce que c'est rapide a tester : 
+python -c "print '\x10\x98\x04\x08' + '%p--'*10 + '%16930008p' + '%n'" > /tmp/3
+
+Ca marche !

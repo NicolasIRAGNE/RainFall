@@ -1,1 +1,15 @@
+Le programme call printf avec l'input en premier parametre.
+On peut donc utiliser le formatage a notre avantage...
+
+Ici de la doc interessante:
+https://www.root-me.org/fr/Documentation/Applicatif/Chaine-de-format-lecture-en-memoire
+https://www.root-me.org/fr/Documentation/Applicatif/Chaine-de-format-ecriture-en-memoire
+
+Avec le flag %n on peut donc ecrire dans une adresse qu'on met sur la stack.
+On veut donc ecrire 64 a l'adresse 0x0804988c.
+On push donc cette adresse sur la stack et on peut ecrire dedans :)
+
+La structure de notre payload sera donc:
+ADRESSE OU ON VEUT ECRIRE + un nombre suffisant de %p pour avancer dans la stack jusqu'a notre chaine + le nombre de bytes manquants pour arriver a 64 + %n
+
 python -c "print '\x8c\x98\x04\x08' + '%p--'*3 + 'a'*29 + '%n'" > /tmp/3
