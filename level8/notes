@@ -1,0 +1,6 @@
+je comprends pas vraiment le binaire, mais de ce que j'ai compris:
+si on ecrit "auth " ou "service" il fait un malloc qui incremente l'adresse de 0x10
+
+si on ecrit login et que l'ecart entre les deux adresses est >= a 0x20 on a un shell
+
+????????? quoi
