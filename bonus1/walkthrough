@@ -1,0 +1,15 @@
+le binaire fait un atoi
+si resultat >= 9 : exit
+
+puis ensuite il memcpy de la taille de ce qu'on lui donne dans un buffer
+mais il ne check pas les negatifs !
+
+du coup...
+on veut faire en sorte de mettre 44 en param
+quand il fait le calcul de la taille il multiplie par 4 et euh ca fait overflow jimagine
+
+on voit qu'il compare la valeur situee a esp+60 avec 0x574f4c46
+le memcpy ecrit a esp+20
+on veut donc essayer d'ecrire jusqu'a mettre la valeur quon veut a esp+60
+donc 40 bytes de padding puis la valeur qu'il check !
+r $(python -c "print '-2147483637 ' + 'A'*40 + '\x46\x4c\x4f\x57'")
