@@ -1,0 +1,7 @@
+le binaire read le fichier password
+puis il met un \0 a atoi(argv[1]) bytes de la chaine
+
+ensuite il fait un strcmp de argv[1] et de ce qu'il a read
+
+on a juste a mettre une chaine vide pour que atoi renvoie 0 et qu'il mette un 0 au premier byte, donc il fait une chaine vide
+du coup il compare deux chaines vides et il exec /bin/sh
