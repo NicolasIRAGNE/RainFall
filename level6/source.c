@@ -11,7 +11,9 @@ void m()
 int	main(int ac, char **av)
 {
 	char *a = malloc(64);
-	char *b = malloc(4);
+	void (*b)(void) = malloc(4);
 
-	
+	b = m;
+	strcpy(a, av[1]);
+	b();
 }
