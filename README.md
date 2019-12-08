@@ -13,4 +13,6 @@
 - https://en.wikipedia.org/wiki/Buffer_overflow
 - https://stackoverflow.com/questions/556714/how-does-the-stack-work-in-assembly-language
 - http://flint.cs.yale.edu/cs421/papers/x86-asm/asm.html
+- https://www.exploit-db.com/docs/english/28553-linux-classic-return-to-libc-&-return-to-libc-chaining-tutorial.pdf
+- https://www.owasp.org/index.php/Format_string_attack
 - https://www.felixcloutier.com/x86/ :|
