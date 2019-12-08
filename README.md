@@ -1,5 +1,7 @@
 # RainFall
 
+Second security project at 42. Mostly buffer overflows. Oh, well.
+
 ## Useful stuff:
 
 ### 1. Tools :
